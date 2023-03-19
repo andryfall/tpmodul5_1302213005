@@ -1,20 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-internal class program
+class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Nama Praktikan : ");
-        String input = Console.ReadLine();
-        HaloGeneric.SapaUser<String>(input);
+        DataGeneric<String> obj = new DataGeneric<String>("Halo");
+        obj.PrintData();
     }
 }
-
-public class HaloGeneric
+class DataGeneric<T>
 {
-    public static void SapaUser<T>(T input)
+    private T data;
+
+    public DataGeneric(T data)
     {
-        Console.WriteLine("Halo user " + input);
+        this.data = data;
+    }
+
+    public void PrintData()
+    {
+        Console.WriteLine("Data yang tersimpan adalah: " + data);
     }
 }
